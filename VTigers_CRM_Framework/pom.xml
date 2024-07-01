@@ -8,8 +8,6 @@
 
 
 	<dependencies>
-
-
 		<!--https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -17,28 +15,6 @@
 			<version>4.12.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>4.1.2</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>4.1.2</version>
-		</dependency>
-
-
-		<!--
-		https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
@@ -48,31 +24,11 @@
 			<!--6.14.3-->
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<version>8.4.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.13.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-		<dependency>
-			<groupId>com.aventstack</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>5.0.9</version>
-		</dependency>
 
 	</dependencies>
 
 	<profiles>
-	<!-- Below profile is used to execute smoke test suite -->
+		<!-- Below profile is used to execute smoke test suite -->
 		<profile>
 			<id>ST</id><!--Smoke Test Suite-->
 			<build>
@@ -92,52 +48,13 @@
 				</plugins>
 			</build>
 		</profile>
-		
-		<!-- Below profile is used to execute Regional Regeression test suite -->
-		<profile>
-			<id>RRT</id><!--Regional Regression Test Suite-->
-			<build>
-				<plugins>
-					<!-- Below plug-in is used to execute tests -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>2.18.1</version>
-						<configuration>
-							<suiteXmlFiles>
-								<!-- TestNG suite XML files -->
-								<suiteXmlFile>regional_RegressionTestngSuite.xml</suiteXmlFile>
-							</suiteXmlFiles>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<!-- Below profile is used to execute regeression test suite -->
-		<profile>
-			<id>FRT</id><!--Full Regional Regression Test Suite-->
-			<build>
-				<plugins>
-					<!-- Below plug-in is used to execute tests -->
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>2.18.1</version>
-						<configuration>
-							<suiteXmlFiles>
-								<!-- TestNG suite XML files -->
-								<suiteXmlFile>RegressionBatch.xml</suiteXmlFile>
-							</suiteXmlFiles>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
+
+
 	</profiles>
 
 	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
 	</properties>
 
 </project>
