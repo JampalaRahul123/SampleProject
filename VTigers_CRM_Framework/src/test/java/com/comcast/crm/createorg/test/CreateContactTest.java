@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class CreateContactTest {
 	@Test
 	public void sampleTest() {
-		System.out.println("Create organization test started=========");
+		System.out.println("=========Create Contact test started=========");
 
 		String BROWSER = System.getProperty("browser");
 		String URL = System.getProperty("url");
@@ -17,7 +17,7 @@ public class CreateContactTest {
 		System.out.println(USERNAME);
 		System.out.println(PASSWORD);
 
-		System.out.println("=======Create organization test Ended");
+		System.out.println("=======Create Contact test Ended========");
 
 	}
 
