@@ -53,16 +53,16 @@ public class BaseClass {
 
 	}
 
-	@Parameters("BROWSER")
+	/* @Parameters("BROWSER") */
 	@BeforeClass(groups = { "Smoke Test", "Regression Test" })
 	// execute only once in a class
-	 //public void configBeforeClass(String browser) throws Throwable {
+	// public void configBeforeClass(String browser) throws Throwable {
 	public void configBeforeClass() throws Throwable {
 		System.out.println("=====Launching the browser======");
-		//String BROWSER = browser; //read data from properties then remove parameter
+		// String BROWSER = browser; //read data from properties then remove parameter
 		// in testng suite
-		String BROWSER = pFileUtil.getDataFromProperties("browser");
-		String URL = pFileUtil.getDataFromProperties("url");
+		String BROWSER = System.getProperty("browser"); //pFileUtil.getDataFromProperties("browser")
+		String URL = System.getProperty("url");
 
 		if (BROWSER.equals("chrome")) {
 			driver = new ChromeDriver();
@@ -86,8 +86,8 @@ public class BaseClass {
 	@BeforeMethod(groups = { "Smoke Test", "Regression Test" })
 	public void configBeforeMethod() throws Throwable {
 		System.out.println("==Log in==");
-		String USERNAME = pFileUtil.getDataFromProperties("username");
-		String PASSWORD = pFileUtil.getDataFromProperties("password");
+		String USERNAME = System.getProperty("username");
+		String PASSWORD =System.getProperty("password");
 
 		loginPage lp = new loginPage(driver);
 		lp.logIntoVtigers(USERNAME, PASSWORD);
