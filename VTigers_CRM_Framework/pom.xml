@@ -5,6 +5,8 @@
 	<groupId>Tekpyramid</groupId>
 	<artifactId>test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+
 	<dependencies>
 
 
@@ -67,6 +69,75 @@
 			<version>5.0.9</version>
 		</dependency>
 
-
 	</dependencies>
+
+	<profiles>
+	<!-- Below profile is used to execute smoke test suite -->
+		<profile>
+			<id>ST</id><!--Smoke Test Suite-->
+			<build>
+				<plugins>
+					<!-- Below plug-in is used to execute tests -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<suiteXmlFiles>
+								<!-- TestNG suite XML files -->
+								<suiteXmlFile>SmokeBatch.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<!-- Below profile is used to execute Regional Regeression test suite -->
+		<profile>
+			<id>RRT</id><!--Regional Regression Test Suite-->
+			<build>
+				<plugins>
+					<!-- Below plug-in is used to execute tests -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<suiteXmlFiles>
+								<!-- TestNG suite XML files -->
+								<suiteXmlFile>regional_RegressionTestngSuite.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<!-- Below profile is used to execute regeression test suite -->
+		<profile>
+			<id>FRT</id><!--Full Regional Regression Test Suite-->
+			<build>
+				<plugins>
+					<!-- Below plug-in is used to execute tests -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<suiteXmlFiles>
+								<!-- TestNG suite XML files -->
+								<suiteXmlFile>RegressionBatch.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
 </project>
